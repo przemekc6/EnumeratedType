@@ -1,0 +1,19 @@
+•	Czym jest enum;
+Enum (dostępny dopiero od Javy 1.5) – własny typ wyliczeniowy, który zawiera skończoną liczbę nazwanych wartości – stałych wyliczeniowych. Rozwiązuje on problem polegający na tym, że dana zmienna może przechowywać tylko ograniczoną liczbę wartości np. rozmiary ubrań: XS, S, M, L, XL. Wartości (stałe wyliczeniowe) określamy już na etapie definiowania typu enum i nie da się dodać do enuma nowych wartości „z zewnątrz” (czyli spoza samego enuma).
+•	Typ wyliczeniowy może posiadać konstruktory, metody i pola. Konstruktory są wywoływane tylko i wyłącznie wtedy, kiedy są konstruowane stałe wyliczeniowe.
+•	Konstruktor wyliczenia jest zawsze prywatny (domyślnie).
+•	Wszystkie typy wyliczeniowe są podklasami klasy Enum, oraz każdy typ wyliczeniowy jest klasą finalną, a to w skrócie oznacza, że enum nie możne rozszerzać innych klas oraz sam nie może być rozszerzany!!
+•	Przydatne metody z klasy Enum: valueOf(), toString(), name(), ordinal(), compareTo() oraz values().
+
+
+Stwórz prosta grę, w której będą ze sobą walczyli czarodzieje za pomocą zaklęć.
+ Stwórz klasę Wizard,która będzie reprezentowała czarodzieja. Wizard ma posiadać pola takie jak nazwa, poziom życia (final double, przypisz do tego pola w klasie od razu wartość 200.0 ) wiek(long bo czarodzieje mogą długo żyć) oraz typ czarodzieja (enum WizardType).
+Enum WizardType ma posiadać dwa wyliczenia: WIZARD_OF_FIRE oraz WIZARD_OF_WIND. Pola tego enuma to opis ( np. „Mag ognia”, „Mag wiatru”) oraz tablica z dwoma znanymi przez danego typu czarodzieja zaklęciami(enum SpellType).
+WIZARD_OF_FIRE zna zaklęcie leczące (HEAL, dodaje 30 punktów życia) oraz kulę ognia(FIREBALL, odejmuje 25 punktów życia);
+WIZARD_OF_WIND zna zaklęcie leczące (HEAL, dodaje 30 punktów życia) oraz rażenie piorunem (LIGHTING_STRIKE, odejmuje 20 punktów życia);
+
+W klasie Wizard napisz publiczną metodę throwSpell(), która przyjmuje dwa argumenty: Stringa z nazwą zaklęcia oraz Czarodzieja, który jest celem zaklęcia. Trzymaj się zasad hermetyzacji, enkapsulacji, podziel sobie metodę publiczną na mniejsze metody prywatne itp.
+Pamiętaj, że czarodzieje nie mogą za pomocą zaklęcia HEAL zwiększyć poziomu życia w nieskończoność (zdrowie czarodzieja to max 200.0 pkt). Czarodziej może leczyć siebie oraz swojego przeciwnika jeżeli się zlituje nad nim.
+Życie czarodziejów nie może spaść poniżej 0.0 pkt, bez względu na to ile zostanie rzuconych na nich zaklęć. Czarodziej może sam się zabić za pomocą swojego zaklęcia, np. jakby chciał popełnić honorowe samobójstwo.
+Martwy czarodziej nie jest w stanie rzucać zaklęć. Może go wskrzesić inny czarodziej.
+W klasie WizardRunner stwórz dwóch czarodziejów i stocz pomiędzy nimi walkę np. Saruman vs Gandalf.
